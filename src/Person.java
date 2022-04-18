@@ -32,7 +32,7 @@ public class Person {
         }
     }
 
-    class Staff extends Person {
+    class Staff extends Person implements Salary{
         String education, position;
 
         void initialize1()throws IOException{
@@ -50,6 +50,13 @@ public class Person {
             System.out.println("Education: " + education);
             System.out.println("Position: " + position);
         }
+
+        @Override
+        public int salaryToPay(int hoursYohannes56390, int rateYohannes56390) {
+            return hoursYohannes56390 * rateYohannes56390;
+        }
+
+
     }
 
 
@@ -59,6 +66,17 @@ public class Person {
             Yohannes56390.initialize1();
             Yohannes56390.print1();
         }
+    }
+
+    interface Salary {
+    int salaryToPay (int hoursYohannes56390, int rateYohannes56390);
+
+    default int salaryForOvertime (int overHoursYohannes56390, int overRateYohannes56390){
+        return overHoursYohannes56390 * overRateYohannes56390;
+    }
+    static boolean bonusEligibility (int yearsOfExperienceYohannes56390){
+        return yearsOfExperienceYohannes56390 > 5;
+    }
     }
 
 
